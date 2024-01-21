@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARYAVARTHA</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image:url("/static/img6.jpg");
+      background-size: cover;
+    }
+      section {
+        font-size: 25px;
+      padding: 2em;
+      text-align: center;
+      background-color:#ffffff;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 60%;
+    }
+    section {
+color: #fff !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #17942c;
+padding: 20px;
+border-radius: 5px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+}
+section:hover {
+background: #000000;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 10px 10px 10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+}
+
+    button {
+      background-color: #e7dcdc; /* Button background color */
+      color: #000000;
+      padding: 0.5em 1em;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #17942c;
+      color: #000000;
+      text-align: center;
+      padding: 1em;
+      width: 100%;
+      margin-top: 230px;
+    }
+    #chat-container {
+      height: 200px;
+      width:1000px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin:10px;
+    }
+
+    #response-list {
+      font-size: 20px;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+  <section class="aicopilot">
+    <h2>Your Chatbot</h2>
+    </section>
+
+    <input type="text" id="user-input" placeholder="Type your question..." style="width:500px;"><br>
+    <button onclick="sendMessage()">Send</button>
+    <div id="chat-container"></div>
+  
+    <div id="response-list">
+      <h2>Common Queries:</h2>
+      <ul>
+        <li>1. How to reduce carbon emissions?</li>
+        <li>2. What is carbon offsetting?</li>
+        <li>3. Benefits of renewable energy</li>
+        <li>4. How to reduce electricity consumption?</li>
+        <li>5. What is composting?</li>
+        <li>6. How to offset carbon emissions from flights?</li>
+        <li>7. What are the benefits of walking?</li>
+        <li>8. What are the advantages of renewable energy?</li>
+        <li>9. How to reduce LPG consumption?</li>
+        <li>10. What are sustainable commuting options?</li>
+        <li>11. How to reduce water usage?</li>
+        <li>12. What are the impacts of plastic waste on the environment?</li>
+        <li>13. How to reduce carbon footprint at work?</li>
+        <li>14. What are green building practices?</li>
+        <li>15. How to recycle effectively?</li>
+        <li>16. How to reduce carbon footprint during holidays?</li>
+        <li>17. What is the carbon footprint of food transportation?</li>
+        <li>18. What are the benefits of public transportation?</li>
+        <li>19. How to adopt a plant-based diet?</li>
+        <li>20. How to implement green technologies at home?</li>
+        <li>21. What are the benefits of reducing meat consumption?</li>
+        <li>22. How to engage in community initiatives for sustainability?</li>
+        <li>23. How to reduce carbon footprint from transportation?</li>
+        <li>24. What are the benefits of recycling?</li>
+        <li>25. How to lower carbon footprint with energy-efficient appliances?</li>
+        <li>26. What is the impact of deforestation on climate change?</li>
+        <li>27. What are the benefits of reusing and recycling practices?</li>
+        <li>28. How to shop for carbon-friendly products?</li>
+        <li>29. How to reduce carbon footprint through energy conservation at home?</li>
+        <li>30. How to practice sustainable commuting to work?</li>
+        <li>31. What are the benefits of renewable energy sources?</li>
+        <li>32. What are the advantages of walking as a mode of transportation?</li>
+        <li>33. How to reduce carbon footprint through green technologies for home?</li>
+        <li>34. How to calculate carbon footprint?</li>
+        <li>35. What are the benefits of reducing plastic usage?</li>
+        <li>36. How to reduce carbon footprint from travel?</li>
+        <li>37. How to reduce carbon footprint at home?</li>
+        <li>38. What is the role of renewable energy in reducing carbon emissions?</li>
+        <li>39. How to minimize waste during holidays?</li>
+        <li>40. What are the benefits of carpooling?</li>
+        <li>41. How to reduce carbon footprint in construction?</li>
+        <li>42. What is the importance of energy-efficient lighting?</li>
+        <li>43. How to reduce carbon footprint through public transport?</li>
+        <li>44. How to promote sustainability at work?</li>
+        <li>45. What are the benefits of choosing locally sourced food?</li>
+      </ul>
+    </div>
+  
+    <script>
+      var userProfiles = {}; 
+      function sendMessage() {
+        var userInput = document.getElementById('user-input').value.toLowerCase();
+        displayMessage('User: ' + userInput);
+        var response = generateResponse(userInput);
+  
+        displayMessage('Bot: ' + response);
+      }
+  
+      function generateResponse(userInput) {
+        if (userInput.includes('carbon footprint emission') || userInput.includes('reduce carbon emission')) {
+          return 'To reduce carbon emissions, consider using energy-efficient appliances, driving less, and supporting sustainable practices.';
+        } else if (userInput.includes('carbon footprint calculator')) {
+          return 'You can calculate your carbon footprint by using online calculators that consider factors like energy usage, transportation, and diet.';
+        } else if (userInput.includes('sustainable practice')) {
+          return 'Sustainable practices include reducing single-use plastic, conserving water, supporting eco-friendly products, and adopting a plant-based diet.';
+        } else if (userInput.includes('travel reduction method')) {
+          return 'To reduce your travel carbon footprint, try carpooling, using public transport, or even exploring virtual meetings instead of traveling.';
+        } else if (userInput.includes('reduce electricity consumption')) {
+          return 'To reduce electricity consumption, turn off lights when not in use, use energy-efficient appliances, and consider renewable energy sources like solar power.';
+        } else if (userInput.includes('reduce lpg consumption')) {
+          return 'To reduce LPG consumption, use energy-efficient stoves, cook with lids on pots, and consider alternative cooking methods like slow cookers or microwaves.';
+        } else if (userInput.includes('how to reduce carbon emission from transportation')) {
+          return 'Reduce your transportation carbon footprint by using public transport, carpooling, biking, or walking. Consider electric or hybrid vehicles for a more eco-friendly option.';
+        } else if (userInput.includes('carbon offsetting')) {
+          return 'Carbon offsetting is a practice to compensate for carbon emissions by investing in projects that reduce or capture an equivalent amount of greenhouse gases.';
+        } else if (userInput.includes('energy-efficient appliances')) {
+          return 'Choose appliances with the ENERGY STAR label, which indicates they meet strict energy efficiency guidelines. Also, unplug devices when not in use to save energy.';
+        } else if (userInput.includes('plant-based diet')) {
+          return 'Adopting a plant-based diet, with more fruits, vegetables, and plant-based proteins, can significantly reduce your carbon footprint associated with food production.';
+        } else if (userInput.includes('renewable energy sources')) {
+          return 'Switch to renewable energy sources like solar or wind power to reduce your reliance on fossil fuels and decrease your carbon footprint.';
+        } else if (userInput.includes('composting')) {
+          return 'Composting organic waste helps reduce methane emissions from landfills and enriches the soil. It\'s a sustainable practice that contributes to lower carbon emissions.';
+        } else if (userInput.includes('biking for transportation')) {
+          return 'Biking is an eco-friendly transportation option that reduces carbon emissions. It\'s good for your health and the environment.';
+        } else if (userInput.includes('energy conservation at home')) {
+          return 'Conserve energy at home by using energy-efficient appliances, turning off lights when not needed, and properly insulating your home. Small changes can make a big impact.';
+        } else if (userInput.includes('recycling tips')) {
+          return 'Recycling helps reduce the need for raw materials and lowers carbon emissions. Remember to separate recyclables, and consider upcycling to give items a new life.';
+        } else if (userInput.includes('green building practices')) {
+          return 'Green building practices, such as using sustainable materials and optimizing energy efficiency, contribute to lower carbon emissions in construction.';
+        } else if (userInput.includes('reducing water usage')) {
+          return 'Reducing water usage not only conserves this precious resource but also lowers the energy required for water treatment and distribution, resulting in reduced carbon emissions.';
+        } else if (userInput.includes('offset carbon emissions from flights')) {
+          return 'Consider offsetting the carbon emissions from your flights by investing in carbon offset projects. This helps balance out the environmental impact of air travel.';
+        } else if (userInput.includes('reduce carbon footprint at work')) {
+          return 'At work, promote energy efficiency, encourage sustainable commuting options, and implement waste reduction initiatives to collectively reduce the carbon footprint.';
+        } else if (userInput.includes('carbon-friendly shopping tips')) {
+          return 'Shop sustainably by choosing products with minimal packaging, opting for second-hand items, and supporting eco-friendly brands committed to reducing their carbon footprint.';
+        } else if (userInput.includes('lowering carbon footprint during holidays')) {
+          return 'During holidays, minimize waste, opt for eco-friendly decorations, and consider virtual celebrations to reduce the environmental impact associated with travel and festivities.';
+        } else if (userInput.includes('carbon footprint of food transportation')) {
+          return 'Choose locally sourced food to reduce the carbon footprint of transportation. Supporting local farmers helps lower emissions associated with long-distance food transportation.';
+        } else if (userInput.includes('sustainable commuting to work')) {
+          return 'Sustainable commuting options include biking, walking, carpooling, or using public transport. These choices help reduce traffic-related emissions and contribute to a healthier environment.';
+        } else if (userInput.includes('benefits of public transportation')) {
+          return 'Public transportation benefits the environment by reducing individual car emissions, easing traffic congestion, and promoting energy-efficient travel options.';
+        } else if (userInput.includes('benefits of walking')) {
+          return 'Walking is a green and healthy mode of transportation. It reduces carbon emissions, improves physical health, and promotes a more sustainable lifestyle.';
+        } else if (userInput.includes('advantages of renewable energy')) {
+          return 'Renewable energy, such as solar and wind power, is sustainable, reduces greenhouse gas emissions, and lessens dependence on finite fossil fuel resources.';
+        } else if (userInput.includes('benefits of reducing meat consumption')) {
+          return 'Reducing meat consumption, especially red meat, can lower your carbon footprint. Plant-based diets generally have a smaller environmental impact.';
+        } else if (userInput.includes('impacts of plastic waste on the environment')) {
+          return 'Plastic waste negatively impacts the environment, leading to pollution, harm to wildlife, and long-lasting ecological damage. Reducing single-use plastics is crucial.';
+        } else if (userInput.includes('reuse and recycle practices')) {
+          return 'Practicing reuse and recycling conserves resources, minimizes waste in landfills, and reduces the need for raw materials, thus lowering the overall carbon footprint.';
+        } else if (userInput.includes('impact of deforestation on climate change')) {
+          return 'Deforestation contributes to climate change by reducing the number of trees that absorb CO2. It disrupts ecosystems and accelerates the greenhouse effect.';
+        } else if (userInput.includes('green technologies for home')) {
+          return 'Implementing green technologies at home, such as smart thermostats, energy-efficient lighting, and solar panels, can significantly reduce energy consumption.';
+        } else if (userInput.includes('community initiatives for sustainability')) {
+          return 'Engaging in community initiatives, like local clean-up events, tree planting, and educational programs, fosters sustainability awareness and positive environmental impact.';
+        } else {
+          return 'I\'m here to help you with reducing your carbon footprint! Feel free to ask about carbon emissions, sustainable practices, or any related topic.';
+        }
+      }
+  
+      function displayMessage(message) {
+        var chatContainer = document.getElementById('chat-container');
+        chatContainer.innerHTML += '<p>' + message + '</p>';
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+      </script>
+
+  <footer>
+    &copy; 2023 Your Advanced Website. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

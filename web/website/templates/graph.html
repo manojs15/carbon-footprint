@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARYAVARTHA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      background-image:url("/static/img6.jpg");
+      background-size:cover;
+    }
+    canvas {
+      max-width: 1000px; /* Increase the maximum width */
+      margin: 20px auto; /* Center the graph horizontally */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 8px;
+    }
+  </style>
+  <!-- Include Chart.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div>
+    <h2 style="text-align: center; color: #333;">Carbon Footprint Data - Bar Graph</h2>
+    <canvas id="barChart"></canvas>
+  </div>
+
+  <div>
+    <h2 style="text-align: center; color: #333;">Carbon Footprint Data - Line Graph</h2>
+    <canvas id="lineChart"></canvas>
+  </div>
+
+  <div>
+    <h2 style="text-align: center; color: #333;">Carbon Footprint Data - Pie Chart</h2>
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <script>
+    // Data for the bar graph
+    var barData = {
+      labels: ['Electricity', 'Natural Gas', 'Coal', 'LPG', 'Flight', 'Car Personal', 'Car Public', 'Bike', 'Train', 'Bus', 'Secondary Food', 'Secondary Medicals', 'Secondary Clothes', 'Secondary Computer', 'Waste', 'Carbon Footprint'],
+      datasets: [{
+        label: 'Carbon Footprint Data',
+        data: [200, 500, 0.2595, 700, 5000, 2300, 2500, 50, 4100, 2150, 500, 550, 230, 210, 2000, 15000, 3100, 220, 105, 1000], // Increase the data values
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 159, 64, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 159, 64, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // Options for the bar graph
+    var barOptions = {
+      scales: {
+        x: {
+          beginAtZero: true,
+        },
+        y: {
+          beginAtZero: true,
+          suggestedMax: 2000, // Adjust the maximum value on the y-axis
+        }
+      }
+    };
+
+    // Get the bar graph canvas element
+    var barCtx = document.getElementById('barChart').getContext('2d');
+
+    // Create the bar graph
+    var myBarChart = new Chart(barCtx, {
+      type: 'bar',
+      data: barData,
+      options: barOptions
+    });
+
+    // Data for the line graph
+    var lineData = {
+      labels: ['Electricity', 'Natural Gas', 'Coal', 'LPG', 'Flight', 'Car Personal', 'Car Public', 'Bike', 'Train', 'Bus', 'Secondary Food', 'Secondary Medicals', 'Secondary Clothes', 'Secondary Computer', 'Waste', 'Carbon Footprint'],
+      datasets: [{
+        label: 'Carbon Footprint Data',
+        data: [200, 500, 0.2595, 700, 5000, 2300, 2500, 50, 4100, 2150, 500, 550, 230, 210, 2000, 15000, 3100, 220, 105, 1000], // Increase the data values
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        fill: false,
+      }]
+    };
+
+    // Options for the line graph
+    var lineOptions = {
+      scales: {
+        x: {
+          beginAtZero: true,
+        },
+        y: {
+          beginAtZero: true,
+          suggestedMax: 200, // Adjust the maximum value on the y-axis
+        }
+      }
+    };
+
+    // Get the line graph canvas element
+    var lineCtx = document.getElementById('lineChart').getContext('2d');
+
+    // Create the line graph
+    var myLineChart = new Chart(lineCtx, {
+      type: 'line',
+      data: lineData,
+      options: lineOptions
+    });
+
+    // Data for the pie chart
+    var pieData = {
+      labels: ['Electricity', 'Natural Gas', 'Coal', 'LPG', 'Flight', 'Car Personal', 'Car Public', 'Bike', 'Train', 'Bus', 'Secondary Food', 'Secondary Medicals', 'Secondary Clothes', 'Secondary Computer', 'Waste', 'Carbon Footprint'],
+      datasets: [{
+        data: [200, 500, 0.2595, 700, 5000, 2300, 2500, 50, 4100, 2150, 500, 550, 230, 210, 2000, 15000, 3100, 220, 105, 1000],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 159, 64, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 159, 64, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)'
+        ],
+      }]
+    };
+
+    // Get the pie chart canvas element
+    var pieCtx = document.getElementById('pieChart').getContext('2d');
+
+    // Create the pie chart
+    var myPieChart = new Chart(pieCtx, {
+      type: 'pie',
+      data: pieData,
+    });
+  </script>
+
+</body>
+</html>

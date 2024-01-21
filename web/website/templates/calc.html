@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARYAVARTHA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image:url(1.jpg) ;
+            background-size: cover;
+        }
+        img{
+            height:auto;
+            width:auto;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        h3{
+            font-size: 50px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <form id="carbonCalculator">
+        <h3>Welcome</h3>
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required>
+
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place" required>
+        </form>
+<form id="carbonCalculator">
+    <h3>House</h3>
+        <label for="homePeople">Number of People in Home:</label>
+        <input type="number" id="homePeople" name="homePeople" required>
+
+        <label for="electricity">Electricity Consumption (kWh):</label>
+        <input type="number" id="electricity" name="electricity" required>
+
+        <label for="naturalGas">Natural Gas Consumption (cubic meters):</label>
+        <input type="number" id="naturalGas" name="naturalGas" required>
+        </form>
+<form id="carbonCalculator">
+    <h3>Transportation</h3>
+        <label for="flightDistance">Flight Travel Distance (km):</label>
+        <input type="number" id="flightDistance" name="flightDistance" required>
+
+        <label for="carDistance">Car Travel Distance (km):</label>
+        <input type="number" id="carDistance" name="carDistance" required>
+
+        <label for="publicTaxiDistance">Public Taxi Distance (km):</label>
+        <input type="number" id="publicTaxiDistance" name="publicTaxiDistance" required>
+
+        <label for="bikeDistance">Bike Travel Distance (km):</label>
+        <input type="number" id="bikeDistance" name="bikeDistance" required>
+
+        <label for="trainDistance">Train Travel Distance (km):</label>
+        <input type="number" id="trainDistance" name="trainDistance" required>
+
+        <label for="busDistance">Bus Transportation Distance (km):</label>
+        <input type="number" id="busDistance" name="busDistance" required>
+</form>
+
+<form id="carbonCalculator">
+<h3>Secondary</h3>
+        <label for="secondaryFood">Secondary Food Consumption (kg):</label>
+        <input type="number" id="secondaryFood" name="secondaryFood" required>
+
+        <label for="secondaryMedicals">Secondary Medicals Consumption (kg):</label>
+        <input type="number" id="secondaryMedicals" name="secondaryMedicals" required>
+
+        <label for="secondaryShopping">Secondary Clothes Shopping Consumption (kg):</label>
+        <input type="number" id="secondaryShopping" name="secondaryShopping" required>
+
+        <label for="secondaryComputer">Secondary Computer Equipment Consumption (kg):</label>
+        <input type="number" id="secondaryComputer" name="secondaryComputer" required>
+
+        <label for="wasteProduction">Waste Production (kg):</label>
+        <input type="number" id="wasteProduction" name="wasteProduction" required>
+
+        <button type="button" onclick="calculateCarbonFootprint()">Calculate</button>
+    <h3>Result</h3>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function calculateCarbonFootprint() {
+            const userName = document.getElementById('userName').value;
+            const country = document.getElementById('country').value;
+            const state = document.getElementById('state').value;
+            const place = document.getElementById('place').value;
+            const homePeople = parseFloat(document.getElementById('homePeople').value);
+            const electricity = parseFloat(document.getElementById('electricity').value);
+            const naturalGas = parseFloat(document.getElementById('naturalGas').value);
+            const flightDistance = parseFloat(document.getElementById('flightDistance').value);
+            const carDistance = parseFloat(document.getElementById('carDistance').value);
+            const publicTaxiDistance = parseFloat(document.getElementById('publicTaxiDistance').value);
+            const bikeDistance = parseFloat(document.getElementById('bikeDistance').value);
+            const trainDistance = parseFloat(document.getElementById('trainDistance').value);
+            const busDistance = parseFloat(document.getElementById('busDistance').value);
+            const secondaryFood = parseFloat(document.getElementById('secondaryFood').value);
+            const secondaryMedicals = parseFloat(document.getElementById('secondaryMedicals').value);
+            const secondaryShopping = parseFloat(document.getElementById('secondaryShopping').value);
+            const secondaryComputer = parseFloat(document.getElementById('secondaryComputer').value);
+            const wasteProduction = parseFloat(document.getElementById('wasteProduction').value);
+            const carbonFootprint = (
+                (electricity * 0.5) +
+                (naturalGas * 1.2) +
+                (flightDistance * 0.1) +
+                (carDistance * 0.3) +
+                (publicTaxiDistance * 0.2) +
+                (bikeDistance * 0.05) +
+                (trainDistance * 0.1) +
+                (busDistance * 0.08) +
+                (secondaryFood * 0.15) +
+                (secondaryMedicals * 0.12) +
+                (secondaryShopping * 0.1) +
+                (secondaryComputer * 0.07) +
+                (wasteProduction * 0.2)
+            );
+            document.getElementById('result').innerText = `${userName}'s estimated carbon footprint: ${carbonFootprint.toFixed(2)} kgCO2e`;
+            }
+    </script>
+    <button><a href="{% url 'register' %}">Register</a></button>
+</body>
+</html>

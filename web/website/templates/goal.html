@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARYAVARTHA</title>
+  <style>
+
+body {
+    background-image: url("1.jpg");
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+footer {
+      background-color: #17942c; 
+      color: #000000;
+      text-align: center;
+      padding: 1em;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    
+
+.glass-header{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease; 
+    margin: 10px; 
+}
+
+.glass-header:hover {
+    transform: scale(1.05); 
+    background: rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.glass-header:nth-child(2) {
+    background: rgba(222, 222, 230, 0.2);
+}
+.glass-header:nth-child(1) {
+    background: rgba(19, 34, 21, 0.2);
+}
+
+.glass-header:nth-child(3) {
+    background: rgba(222, 222, 230, 0.2);
+}
+
+.glass-header:nth-child(4) {
+    background: rgba(222, 222, 230, 0.2);
+}
+.glass-header:nth-child(5) {
+    background: rgba(222, 222, 230, 0.2);
+}
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    backdrop-filter: blur(5px); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .glass-header {
+        font-size: 1.8rem; 
+        margin: 10px; 
+      }
+}
+</style>
+</head>
+<body>
+
+  <header class="glass-header">
+    <i class="fas fa-magic fa-3x"></i>
+    <h1>Carbon Footprints Goals</h1>
+    
+    <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#000000"/>
+        </svg>
+</header>
+<header class="glass-header">
+          <i class="fas fa-magic fa-3x"></i>
+          <h1>Personal-Recommendation</h1>
+          <p> Switching to personal-recommendation.
+            
+          </p>
+          <a href="#" class="button">Give Feedback</a>
+  </header>
+  <header class="glass-header">
+        <i class="fas fa-magic fa-3x"></i>
+        <h1>Reduction Graph</h1>
+        <p>Constant and Dynamic Graphs</p>
+        <a href="#" class="button">View Graph</a>
+      </header>
+      <header class="glass-header">
+          <i class="fas fa-magic fa-3x"></i>
+          <h1>Sustainable Practices</h1>
+          <p>Reduce carbon emission by your daily life activities</p>
+          <a href="#" class="button">Learn More</a>
+      </header>
+      <header class="glass-header">
+          <i class="fas fa-magic fa-3x"></i>
+          <h1>Ranking of Users</h1>
+          <p>Check out the leader board and see where you stand!</p>
+          <a href="#" class="button">View Rankings</a>
+      </header>
+
+      <footer>
+        &copy; 2023 Your Advanced Website. All Rights Reserved.
+      </footer>
+  </body>
+  </html>

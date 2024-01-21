@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARYAVARTHA</title>
+<style> 
+body {
+  font-family: Arial, sans-serif;
+  background-color:rgb(182, 252, 180);
+   }
+#quiz-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 20px;
+}
+</style>
+ </head>
+  <body> 
+  <div id="quiz-container"> 
+    <h2>Carbon Footprint Quiz</h2> 
+    <form id="quiz-form">
+<!-- Home Appliances Section -->
+  <div class="section">
+    <h3>Home Appliances</h3>
+    <div class="question">
+      <p>1. How can you reduce energy consumption from home appliances?</p>
+      <div class="options">
+        <label><input type="radio" name="home_q1" value="a"> A. Leave appliances on standby</label><br>
+        <label><input type="radio" name="home_q1" value="b"> B. Unplug appliances when not in use</label><br>
+        <label><input type="radio" name="home_q1" value="c"> C. Increase the thermostat setting</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. What is the most energy-efficient setting for a refrigerator?</p>
+      <div class="options">
+        <label><input type="radio" name="home_q2" value="a"> A. Lowest temperature setting</label><br>
+        <label><input type="radio" name="home_q2" value="b"> B. Medium temperature setting</label><br>
+        <label><input type="radio" name="home_q2" value="c"> C. Recommended temperature setting</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. How can you reduce water consumption when using a dishwasher?</p>
+      <div class="options">
+        <label><input type="radio" name="home_q3" value="a"> A. Run the dishwasher with only a few dishes</label><br>
+        <label><input type="radio" name="home_q3" value="b"> B. Use the dishwasher's eco-friendly mode</label><br>
+        <label><input type="radio" name="home_q3" value="c"> C. Let the dishwasher run for a longer time</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. How can you reduce energy consumption when doing laundry?</p>
+      <div class="options">
+        <label><input type="radio" name="home_q4" value="a"> A. Use the highest temperature setting</label><br>
+        <label><input type="radio" name="home_q4" value="b"> B. Wash full loads of laundry</label><br>
+        <label><input type="radio" name="home_q4" value="c"> C. Leave the washing machine door open</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>5. How can you reduce energy consumption from lighting?</p>
+      <div class="options">
+        <label><input type="radio" name="home_q5" value="a"> A. Use incandescent light bulbs</label><br>
+        <label><input type="radio" name="home_q5" value="b"> B. Keep lights on when not in use</label><br>
+        <label><input type="radio" name="home_q5" value="c"> C. Switch to energy-efficient LED bulbs</label>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h3>Bike</h3>
+    <div class="question">
+      <p>1. How can biking contribute to reducing carbon emissions?</p>
+      <div class="options">
+        <label><input type="radio" name="bike_q1" value="a"> A. Biking has no impact on carbon emissions</label><br>
+        <label><input type="radio" name="bike_q1" value="b"> B. Biking produces carbon emissions</label><br>
+        <label><input type="radio" name="bike_q1" value="c"> C. Biking is a carbon-neutral mode of transportation</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. What are the environmental benefits of biking?</p>
+      <div class="options">
+        <label><input type="radio" name="bike_q2" value="a"> A. Increased air pollution</label><br>
+        <label><input type="radio" name="bike_q2" value="b"> B. Reduced traffic congestion</label><br>
+        <label><input type="radio" name="bike_q2" value="c"> C. Increased carbon emissions</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. How can you make your bike commute more sustainable?</p>
+      <div class="options">
+        <label><input type="radio" name="bike_q3" value="a"> A. Drive to work instead</label><br>
+        <label><input type="radio" name="bike_q3" value="b"> B. Use an electric bike</label><br>
+        <label><input type="radio" name="bike_q3" value="c"> C. Maintain your bike regularly</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. What safety measures should you take when biking?</p>
+      <div class="options">
+        <label><input type="radio" name="bike_q4" value="a"> A. Wear a helmet</label><br>
+        <label><input type="radio" name="bike_q4" value="b"> B. Ignore traffic rules</label><br>
+        <label><input type="radio" name="bike_q4" value="c"> C. Bike without lights at night</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>5. How can you encourage others to bike?</p>
+      <div class="options">
+        <label><input type="radio" name="bike_q5" value="a"> A. Discourage biking as a mode of transportation</label><br>
+        <label><input type="radio" name="bike_q5" value="b"> B. Share your biking experiences</label><br>
+        <label><input type="radio" name="bike_q5" value="c"> C. Avoid biking altogether</label>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section">
+    <h3>Car Travel</h3>
+       <div class="question">
+      <p>1. What is a sustainable option for car travel?</p>
+      <div class="options">
+        <label><input type="radio" name="car_q1" value="a"> A. Driving alone in a large SUV</label><br>
+        <label><input type="radio" name="car_q1" value="b"> B. Carpooling with others</label><br>
+        <label><input type="radio" name="car_q1" value="c"> C. Leaving the engine running when parked</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. How can you reduce fuel consumption when driving?</p>
+      <div class="options">
+        <label><input type="radio" name="car_q2" value="a"> A. Accelerate quickly</label><br>
+        <label><input type="radio" name="car_q2" value="b"> B. Use cruise control on highways</label><br>
+        <label><input type="radio" name="car_q2" value="c"> C. Keep the tires underinflated</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. What is the impact of idling your car?</p>
+      <div class="options">
+        <label><input type="radio" name="car_q3" value="a"> A. No impact on fuel consumption</label><br>
+        <label><input type="radio" name="car_q3" value="b"> B. Increased fuel consumption</label><br>
+        <label><input type="radio" name="car_q3" value="c"> C. Reduced fuel consumption</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. How can you make your car more fuel-efficient?</p>
+      <div class="options">
+        <label><input type="radio" name="car_q4" value="a"> A. Regularly service your car</label><br>
+        <label><input type="radio" name="car_q4" value="b"> B. Drive at high speeds</label><br>
+        <label><input type="radio" name="car_q4" value="c"> C. Carry unnecessary weight in your car</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>5. How can you reduce the environmental impact of car travel?</p>
+      <div class="options">
+        <label><input type="radio" name="car_q5" value="a"> A. Use your car for short trips</label><br>
+        <label><input type="radio" name="car_q5" value="b"> B. Share rides with others</label><br>
+        <label><input type="radio" name="car_q5" value="c"> C. Drive alone in a large SUV</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Flight</h3>
+    <div class="question">
+      <p>1. How can you offset the carbon emissions from a flight?</p>
+      <div class="options">
+        <label><input type="radio" name="flight_q1" value="a"> A. There is no way to offset flight emissions</label><br>
+        <label><input type="radio" name="flight_q1" value="b"> B. By purchasing carbon offsets</label><br>
+        <label><input type="radio" name="flight_q1" value="c"> C. Ignoring the issue</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. What is the impact of air travel on climate change?</p>
+      <div class="options">
+        <label><input type="radio" name="flight_q2" value="a"> A. No impact on climate change</label><br>
+        <label><input type="radio" name="flight_q2" value="b"> B. Significant contribution to climate change</label><br>
+        <label><input type="radio" name="flight_q2" value="c"> C. Positive impact on climate change</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. How can you reduce your carbon footprint when flying?</p>
+      <div class="options">
+        <label><input type="radio" name="flight_q3" value="a"> A. Fly in first class</label><br>
+        <label><input type="radio" name="flight_q3" value="b"> B. Choose direct flights</label><br>
+        <label><input type="radio" name="flight_q3" value="c"> C. Pack heavy luggage</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. What is the most sustainable way to travel long distances?</p>
+      <div class="options">
+        <label><input type="radio" name="flight_q4" value="a"> A. Drive alone in a large SUV</label><br>
+        <label><input type="radio" name="flight_q4" value="b"> B. Take a train</label><br>
+        <label><input type="radio" name="flight_q4" value="c"> C. Fly in first class</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>5. How can you minimize the environmental impact of air travel?</p>
+      <div class="options">
+        <label><input type="radio" name="flight_q5" value="a"> A. Choose flights with layovers</label><br>
+        <label><input type="radio" name="flight_q5" value="b"> B. Offset your carbon emissions</label><br>
+        <label><input type="radio" name="flight_q5" value="c"> C. Pack unnecessary items</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Secondary Questions</h3>
+    <div class="question">
+      <p>1. What is the impact of plastic waste on the environment?</p>
+      <div class="options">
+        <label><input type="radio" name="secondary_q1" value="a"> A. No impact</label><br>
+        <label><input type="radio" name="secondary_q1" value="b"> B. Positive impact</label><br>
+        <label><input type="radio" name="secondary_q1" value="c"> C. Negative impact, leading to pollution</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. How can you reduce plastic waste?</p>
+      <div class="options">
+        <label><input type="radio" name="secondary_q2" value="a"> A. Use single-use plastic products</label><br>
+        <label><input type="radio" name="secondary_q2" value="b"> B. Recycle plastic waste</label><br>
+        <label><input type="radio" name="secondary_q2" value="c"> C. Dispose of plastic waste in landfills</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. What are the alternatives to single-use plastic?</p>
+      <div class="options">
+        <label><input type="radio" name="secondary_q3" value="a"> A. Use plastic bags for shopping</label><br>
+        <label><input type="radio" name="secondary_q3" value="b"> B. Use reusable bags</label><br>
+        <label><input type="radio" name="secondary_q3" value="c"> C. Use plastic straws</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. How can you reduce plastic waste in your daily life?</p>
+      <div class="options">
+        <label><input type="radio" name="secondary_q4" value="a"> A. Buy products with excessive plastic packaging</label><br>
+        <label><input type="radio" name="secondary_q4" value="b"> B. Use disposable plastic cutlery</label><br>
+        <label><input type="radio" name="secondary_q4" value="c"> C. Use reusable water bottles</label>
+      </div>
+    </div>
+    <div class="question">
+      <p>5. How can you raise awareness about the impact of plastic waste?</p>
+      <div class="options">
+        <label><input type="radio" name="secondary_q5" value="a"> A. Ignore the issue</label><br>
+        <label><input type="radio" name="secondary_q5" value="b"> B. Share information on social media</label><br>
+        <label><input type="radio" name="secondary_q5" value="c"> C. Use single-use plastic products</label>
+      </div>
+    </div>
+  </div>
+
+  <input type="submit" value="Submit">
+</form>
+
+<div id="result"></div>
+</div>
+
+<script> document.getElementById('quiz-form').addEventListener('submit', function(event) { event.preventDefault(); calculateScore(); });
+
+function calculateScore() {
+  var score = 0;
+  score += calculateSectionScore('home', 5);
+  score += calculateSectionScore('bike', 5);
+  score += calculateSectionScore('car', 5);
+  score += calculateSectionScore('flight', 5);
+  score += calculateSectionScore('secondary', 5);
+  displayResult(score);
+}
+
+function calculateSectionScore(section, numQuestions) {
+  var sectionScore = 0;
+
+  for (var i = 1; i <= numQuestions; i++) {
+    var answer = document.querySelector('input[name=' + section + '_q' + i + ']:checked');
+    if (answer && answer.value === 'b') {
+      sectionScore++;
+    }
+  }
+
+  return sectionScore;
+}
+
+function displayResult(score) {
+  var resultContainer = document.getElementById('result');
+  resultContainer.innerHTML = 'Your score: ' + score + ' out of 25';
+  var compliment = getCompliment(score);
+  resultContainer.innerHTML += '<br><br>' + compliment;
+}
+
+function getCompliment(score) {
+  if (score >= 20) {
+    return 'Excellent! You are making a significant effort to reduce your carbon footprint.';
+  } else if (score >= 15) {
+    return 'Good job! You are on the right track, but there is still room for improvement.';
+  } else {
+    return 'Keep learning and taking steps to reduce your carbon footprint. Every small change makes a difference.';
+  }
+}
+</script> 
+</body>
+</html>
